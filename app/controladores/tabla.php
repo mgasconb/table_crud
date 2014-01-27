@@ -29,13 +29,13 @@ class tabla extends \core\Controlador {
 
     public function validar_form_insertar(array $datos = array()) {
         $validaciones = array(
-            "nombre" => "errores_requerido && errores_nombre && errores_unicidad_insertar:nombre/tabla/nombre"
-            , "apellidoPaterno" => "errores_apellidoPaterno"
-            , "apellidoMaterno" => "errores_apellidoMaterno"
-            , 'correo' => 'errores_correo'
-            , 'username' => 'errores_username'
-            , 'password' => 'errores_password'
-            , 'puntuacion' => 'errores_puntuacion'
+            "nombre" => "errores_requerido && errores_texto && errores_unicidad_insertar:nombre/tabla/nombre"
+            , "apellidoPaterno" => "errores_texto"
+            , "apellidoMaterno" => "errores_texto"
+            , 'correo' => 'errores_texto'
+            , 'username' => 'errores_texto'
+            , 'password' => 'errores_texto'
+            , 'puntuacion' => 'errores_texto'
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos))
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
@@ -91,17 +91,19 @@ class tabla extends \core\Controlador {
 
         $validaciones = array(
             "id_usuario" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuario/tabla/id_usuario"
-            , "nombre" => "errores_requerido && errores_texto && errores_unicidad_modificar:id,nombre/tabla/nombre,id"
-            , "precio" => "errores_precio"
-            , "unidades_stock" => "errores_precio"
-            , 'categoria_nombre' => 'errores_requerido && errores_referencia:categoria_nombre/categorias/nombre'
+            ,"nombre" => "errores_requerido && errores_texto && errores_unicidad_insertar:nombre/tabla/nombre"
+            , "apellidoPaterno" => "errores_texto"
+            , "apellidoMaterno" => "errores_texto"
+            , 'correo' => 'errores_texto'
+            , 'username' => 'errores_texto'
+            , 'password' => 'errores_texto'
+            , 'puntuacion' => 'errores_texto'
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
             //print_r($datos);
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
         } else {
-            $datos['values']['precio'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['precio']);
-            $datos['values']['unidades_stock'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['unidades_stock']);
+            $datos['values']['puntuacion'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['puntuacion']);
             if (!$validacion = \modelos\Datos_SQL::table("tabla")->update($datos["values"])) // Devuelve true o false
                 $datos["errores"]["errores_validacion"] = "No se han podido grabar los datos en la bd.";
         }
@@ -117,7 +119,7 @@ class tabla extends \core\Controlador {
     public function form_borrar(array $datos = array()) {
 
         $validaciones = array(
-            "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
+            "id_usuarios" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuarios/tabla/id_usuarios"
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
             $datos['mensaje'] = 'Datos erróneos para identificar el artículo a borrar';
@@ -125,15 +127,14 @@ class tabla extends \core\Controlador {
             $this->cargar_controlador('mensajes', 'mensaje', $datos);
             return;
         } else {
-            $clausulas['where'] = " id = {$datos['values']['id']} ";
+            $clausulas['where'] = " id_usuarios = {$datos['values']['id_usuario']} ";
             if (!$filas = \modelos\Datos_SQL::table("tabla")->select($clausulas)) {
                 $datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
                 $this->cargar_controlador('mensajes', 'mensaje', $datos);
                 return;
             } else {
                 $datos['values'] = $filas[0];
-                $datos['values']['precio'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['precio']);
-                $datos['values']['unidades_stock'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['unidades_stock']);
+                $datos['values']['puntuacion'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['puntuacion']);
                 $clausulas = array('order_by' => " nombre ");
                 $datos['categorias'] = \modelos\Datos_SQL::select($clausulas, 'categorias');
             }
@@ -145,7 +146,7 @@ class tabla extends \core\Controlador {
 
     public function validar_form_borrar(array $datos = array()) {
         $validaciones = array(
-            "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
+            "id_usuarios" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuarios/tabla/id_usuarios"
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
             $datos['mensaje'] = 'Datos erróneos para identificar el artículo a borrar';
