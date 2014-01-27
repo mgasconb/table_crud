@@ -1,17 +1,7 @@
 
 <form method='post' action="?menu=<?php echo $datos['controlador_clase']; ?>&submenu=validar_<?php echo $datos['controlador_metodo']; ?>" >
 	<input id='id' name='id' type='hidden' value='<?php echo \core\Array_Datos::values('id', $datos); ?>' />
-	Nombre: <select id='nombre' name='nombre' />
-		<?php 
-			if (\core\Distribuidor::get_metodo_invocado() == "form_insertar") {
-				echo "<option >Elige un nombre</option>\n";
-			}
-			foreach ($datos['nombre'] as $nombre) {
-				$selected = (\core\Array_Datos::values('nombre', $datos) == $nombre['nombre']) ? " selected='selected' " : "";
-				echo "<option $selected>{$nombre['nombre']}</option>\n";
-			}
-		?>
-	</select>
+	Nombre: <input id='nombre' name='nombre' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('nombre', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('nombre', $datos); ?>
 	<br />
 	Apellido paterno: <input id='apellidoPaterno' name='apellidoPaterno' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('apellidoPaterno', $datos); ?>'/>
