@@ -2,9 +2,12 @@
 	<h2>Borrar un artículo</h2>
 	<?php include "form_and_inputs.php"; ?>
 	<script type='text/javascript'>
-		window.document.getElementById("categoria_nombre").disabled='disabled';
 		window.document.getElementById("nombre").disabled='disabled';
-		window.document.getElementById("precio").disabled='disabled';
-		window.document.getElementById("unidades_stock").disabled='disabled';
+                window.document.getElementById("apellidoPaterno").disabled='disabled';
+		window.document.getElementById("apellidoMaterno").disabled='disabled';
+		window.document.getElementById("correo").disabled='disabled';
+                window.document.getElementById("username").disabled='disabled';
+                window.document.getElementById("password").disabled='disabled';
+                window.document.getElementById("puntuacion").disabled='disabled';                
 	</script>
 </div>
