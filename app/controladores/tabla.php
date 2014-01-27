@@ -1,7 +1,7 @@
 <?php
 namespace controladores;
 
-class articulos extends \core\Controlador {
+class tabla extends \core\Controlador {
 
 	
 	
