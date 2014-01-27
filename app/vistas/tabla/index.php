@@ -35,7 +35,7 @@
                                                 <td>{$fila['puntuacion']}</td>
 						<td>
 							<a class='boton' href='?menu=tabla&submenu=form_modificar&id={$fila['id']}' >modificar</a>
-							<a class='boton' href='?menu=tabla&submenu=form_borrar&_usuario={$fila['id']}' >borrar</a>
+							<a class='boton' href='?menu=tabla&submenu=form_borrar&id={$fila['id']}' >borrar</a>
 						</td>
 					</tr>
 					";
