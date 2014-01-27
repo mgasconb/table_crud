@@ -12,7 +12,7 @@ class tabla extends \core\Controlador {
 	public function index(array $datos=array()) {
 		
 		$clausulas['order_by'] = 'nombre';
-		$datos["filas"] = \modelos\Datos_SQL::table("articulos")->select( $clausulas ); // Recupera todas las filas ordenadas
+		$datos["filas"] = \modelos\Datos_SQL::table("tabla")->select( $clausulas ); // Recupera todas las filas ordenadas
 		$datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos);
 		$http_body = \core\Vista_Plantilla::generar('plantilla_principal', $datos);
 		\core\HTTP_Respuesta::enviar($http_body);
@@ -34,7 +34,7 @@ class tabla extends \core\Controlador {
 	public function validar_form_insertar(array $datos=array())
 	{	
 		$validaciones=array(
-			 "nombre" =>"errores_requerido && errores_texto && errores_unicidad_insertar:nombre/articulos/nombre"
+			 "nombre" =>"errores_requerido && errores_texto && errores_unicidad_insertar:nombre/tabla/nombre"
 			, "precio" => "errores_precio"
 			, "unidades_stock" => "errores_precio"
 			, 'categoria_nombre' => 'errores_requerido && errores_referencia:categoria_nombre/categorias/nombre'
@@ -44,17 +44,17 @@ class tabla extends \core\Controlador {
 		else {
 			$datos['values']['precio'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['precio']);
 			$datos['values']['unidades_stock'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['unidades_stock']);
-			if ( ! $validacion = \modelos\Datos_SQL::table("articulos")->insert($datos["values"])) // Devuelve true o false
+			if ( ! $validacion = \modelos\Datos_SQL::table("tabla")->insert($datos["values"])) // Devuelve true o false
 				$datos["errores"]["errores_validacion"]="No se han podido grabar los datos en la bd.";
 		}
 		if ( ! $validacion) //Devolvemos el formulario para que lo intente corregir de nuevo
-			$this->cargar_controlador('articulos', 'form_insertar',$datos);
+			$this->cargar_controlador('tabla', 'form_insertar',$datos);
 		else
 		{
 			// Se ha grabado la modificación. Devolvemos el control al la situacion anterior a la petición del form_modificar
 			$datos = array("alerta" => "Se han grabado correctamente los detalles");
 			// Definir el controlador que responderá después de la inserción
-			$this->cargar_controlador('articulos', 'index',$datos);		
+			$this->cargar_controlador('tabla', 'index',$datos);		
 		}
 	}
 
@@ -64,18 +64,18 @@ class tabla extends \core\Controlador {
 		
 		if ( ! count($datos)) { // Si no es un reenvío desde una validación fallida
 			$validaciones=array(
-				"id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/articulos/id"
+				"id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
 			);
 			if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos)) {
 				$datos['mensaje'] = 'Datos erróneos para identificar el artículo a modificar';
-				$datos['url_continuar'] = \core\URL::generar("articulos");
+				$datos['url_continuar'] = \core\URL::generar("tabla");
 				
 				$this->cargar_controlador('mensajes', 'mensaje', $datos);
 				return;
 			}
 			else {
 				$clausulas['where'] = " id = {$datos['values']['id']} ";
-				if ( ! $filas = \modelos\Datos_SQL::table("articulos")->select($clausulas)) {
+				if ( ! $filas = \modelos\Datos_SQL::table("tabla")->select($clausulas)) {
 					$datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
 					$this->cargar_controlador('mensajes', 'mensaje', $datos);
 					return;
@@ -99,8 +99,8 @@ class tabla extends \core\Controlador {
 	public function validar_form_modificar(array $datos=array()) {	
 		
 		$validaciones=array(
-			 "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/articulos/id"
-			, "nombre" =>"errores_requerido && errores_texto && errores_unicidad_modificar:id,nombre/articulos/nombre,id"
+			 "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
+			, "nombre" =>"errores_requerido && errores_texto && errores_unicidad_modificar:id,nombre/tabla/nombre,id"
 			, "precio" => "errores_precio"
 			, "unidades_stock" => "errores_precio"
 			, 'categoria_nombre' => 'errores_requerido && errores_referencia:categoria_nombre/categorias/nombre'
@@ -112,16 +112,16 @@ class tabla extends \core\Controlador {
 		else {
 			$datos['values']['precio'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['precio']);
 			$datos['values']['unidades_stock'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['unidades_stock']);
-			if ( ! $validacion = \modelos\Datos_SQL::table("articulos")->update($datos["values"])) // Devuelve true o false
+			if ( ! $validacion = \modelos\Datos_SQL::table("tabla")->update($datos["values"])) // Devuelve true o false
 				$datos["errores"]["errores_validacion"]="No se han podido grabar los datos en la bd.";
 		}
 		if ( ! $validacion) //Devolvemos el formulario para que lo intente corregir de nuevo
-			$this->cargar_controlador('articulos', 'form_modificar',$datos);
+			$this->cargar_controlador('tabla', 'form_modificar',$datos);
 		else
 		{
 			$datos = array("alerta" => "Se han modificado correctamente.");
 			// Definir el controlador que responderá después de la inserción
-			$this->cargar_controlador('articulos', 'index',$datos);		
+			$this->cargar_controlador('tabla', 'index',$datos);		
 		}
 	}
 
@@ -130,17 +130,17 @@ class tabla extends \core\Controlador {
 	public function form_borrar(array $datos=array()) {
 		
 		$validaciones=array(
-			"id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/articulos/id"
+			"id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
 		);
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos)) {
 			$datos['mensaje'] = 'Datos erróneos para identificar el artículo a borrar';
-			$datos['url_continuar'] = \core\URL::http('?menu=articulos');
+			$datos['url_continuar'] = \core\URL::http('?menu=tabla');
 			$this->cargar_controlador('mensajes', 'mensaje', $datos);
 			return;
 		}
 		else {
 			$clausulas['where'] = " id = {$datos['values']['id']} ";
-			if ( ! $filas = \modelos\Datos_SQL::table("articulos")->select( $clausulas)) {
+			if ( ! $filas = \modelos\Datos_SQL::table("tabla")->select( $clausulas)) {
 				$datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
 				$this->cargar_controlador('mensajes', 'mensaje', $datos);
 				return;
@@ -170,26 +170,26 @@ class tabla extends \core\Controlador {
 	
 	public function validar_form_borrar(array $datos=array()) {	
 		$validaciones=array(
-			 "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/articulos/id"
+			 "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
 		);
 		if ( ! $validacion = ! \core\Validaciones::errores_validacion_request($validaciones, $datos)) {
 			$datos['mensaje'] = 'Datos erróneos para identificar el artículo a borrar';
-			$datos['url_continuar'] = \core\URL::http('?menu=articulos');
+			$datos['url_continuar'] = \core\URL::http('?menu=tabla');
 			$this->cargar_controlador('mensajes', 'mensaje', $datos);
 			return;
 		}
 		else
 		{
-			if ( ! $validacion = \modelos\Datos_SQL::delete($datos["values"], 'articulos')) {// Devuelve true o false
+			if ( ! $validacion = \modelos\Datos_SQL::delete($datos["values"], 'tabla')) {// Devuelve true o false
 				$datos['mensaje'] = 'Error al borrar en la bd';
-				$datos['url_continuar'] = \core\URL::http('?menu=articulos');
+				$datos['url_continuar'] = \core\URL::http('?menu=tabla');
 				$this->cargar_controlador('mensajes', 'mensaje', $datos);
 				return;
 			}
 			else
 			{
 			$datos = array("alerta" => "Se borrado correctamente.");
-			$this->cargar_controlador('articulos', 'index',$datos);		
+			$this->cargar_controlador('tabla', 'index',$datos);		
 			}
 		}
 	}
@@ -204,7 +204,7 @@ class tabla extends \core\Controlador {
 		if (isset($datos['values']['nombre'])) 
 			$clausulas['where'] = " nombre like '%{$datos['values']['nombre']}%'";
 		$clausulas['order_by'] = 'nombre';
-		$datos['filas'] = \modelos\Datos_SQL::select( $clausulas , 'articulos');		
+		$datos['filas'] = \modelos\Datos_SQL::select( $clausulas , 'tabla');		
 		
 		$datos['html_para_pdf'] = \core\Vista::generar(__FUNCTION__, $datos);
 		
@@ -240,7 +240,7 @@ class tabla extends \core\Controlador {
 		if (isset($datos['values']['nombre'])) 
 			$clausulas['where'] = " nombre like '%{$datos['values']['nombre']}%'";
 		$clausulas['order_by'] = 'nombre';
-		$datos['filas'] = \modelos\Datos_SQL::select($clausulas, 'articulos');
+		$datos['filas'] = \modelos\Datos_SQL::select($clausulas, 'tabla');
 				
 		$datos['contenido_principal'] = \core\Vista::generar(__FUNCTION__, $datos);
 		
@@ -263,7 +263,7 @@ class tabla extends \core\Controlador {
 		if (isset($datos['values']['nombre'])) 
 			$clausulas['where'] = " nombre like '%{$datos['values']['nombre']}%'";
 		$clausulas['order_by'] = 'nombre';
-		$datos['filas'] = \modelos\Datos_SQL::select( $clausulas, 'articulos');
+		$datos['filas'] = \modelos\Datos_SQL::select( $clausulas, 'tabla');
 				
 		$datos['contenido_principal'] = \core\Vista::generar(__FUNCTION__, $datos);
 		
@@ -288,7 +288,7 @@ class tabla extends \core\Controlador {
 		if (isset($_datos['values']['nombre'])) 
 			$clausulas['where'] = " nombre like '%{$_datos['values']['nombre']}%'";
 		$clausulas['order_by'] = 'nombre';
-		$datos['filas'] = \modelos\Datos_SQL::select( $clausulas, 'articulos');
+		$datos['filas'] = \modelos\Datos_SQL::select( $clausulas, 'tabla');
 				
 		$datos['contenido_principal'] = \core\Vista::generar(__FUNCTION__, $datos);
 		
@@ -313,7 +313,7 @@ class tabla extends \core\Controlador {
 		if (isset($_datos['values']['nombre'])) 
 			$clausulas['where'] = " nombre like '%{$_datos['values']['nombre']}%'";
 		$clausulas['order_by'] = 'nombre';
-		$datos['filas'] = \modelos\Datos_SQL::select($clausulas, 'articulos');
+		$datos['filas'] = \modelos\Datos_SQL::select($clausulas, 'tabla');
 				
 		$datos['contenido_principal'] = \core\Vista::generar(__FUNCTION__, $datos);
 		
