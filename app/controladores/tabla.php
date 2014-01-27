@@ -29,7 +29,7 @@ class tabla extends \core\Controlador {
 
     public function validar_form_insertar(array $datos = array()) {
         $validaciones = array(
-            "nombre" => "errores_requerido && errores_texto && errores_unicidad_insertar:nombre/tabla/nombre"
+            "nombre" => "errores_requerido && errores_nombre && errores_unicidad_insertar:nombre/tabla/nombre"
             , "apellidoPaterno" => "errores_apellidoPaterno"
             , "apellidoMaterno" => "errores_apellidoMaterno"
             , 'correo' => 'errores_correo'
@@ -58,7 +58,7 @@ class tabla extends \core\Controlador {
 
         if (!count($datos)) { // Si no es un reenvío desde una validación fallida
             $validaciones = array(
-                "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
+                "id_usuario" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuario/tabla/id_usuario"
             );
             if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
                 $datos['mensaje'] = 'Datos erróneos para identificar el artículo a modificar';
@@ -67,18 +67,17 @@ class tabla extends \core\Controlador {
                 $this->cargar_controlador('mensajes', 'mensaje', $datos);
                 return;
             } else {
-                $clausulas['where'] = " id = {$datos['values']['id']} ";
+                $clausulas['where'] = " id_usuario = {$datos['values']['id_usuario']} ";
                 if (!$filas = \modelos\Datos_SQL::table("tabla")->select($clausulas)) {
                     $datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
                     $this->cargar_controlador('mensajes', 'mensaje', $datos);
                     return;
                 } else {
                     $datos['values'] = $filas[0];
-                    $datos['values']['precio'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['precio']);
-                    $datos['values']['unidades_stock'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['unidades_stock']);
+                    $datos['values']['puntuacion'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['puntuacion']);
 
                     $clausulas = array('order_by' => " nombre ");
-                    $datos['categorias'] = \modelos\Datos_SQL::table("categorias")->select($clausulas);
+                    $datos['tabla'] = \modelos\Datos_SQL::table("tabla")->select($clausulas);
                 }
             }
         }
@@ -91,7 +90,7 @@ class tabla extends \core\Controlador {
     public function validar_form_modificar(array $datos = array()) {
 
         $validaciones = array(
-            "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
+            "id_usuario" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuario/tabla/id_usuario"
             , "nombre" => "errores_requerido && errores_texto && errores_unicidad_modificar:id,nombre/tabla/nombre,id"
             , "precio" => "errores_precio"
             , "unidades_stock" => "errores_precio"
