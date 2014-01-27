@@ -58,7 +58,7 @@ class tabla extends \core\Controlador {
 
         if (!count($datos)) { // Si no es un reenvío desde una validación fallida
             $validaciones = array(
-                "id_usuario" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuario/tabla/id_usuario"
+                "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
             );
             if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
                 $datos['mensaje'] = 'Datos erróneos para identificar el artículo a modificar';
@@ -67,7 +67,7 @@ class tabla extends \core\Controlador {
                 $this->cargar_controlador('mensajes', 'mensaje', $datos);
                 return;
             } else {
-                $clausulas['where'] = " id_usuario = {$datos['values']['id_usuario']} ";
+                $clausulas['where'] = " id = {$datos['values']['id']} ";
                 if (!$filas = \modelos\Datos_SQL::table("tabla")->select($clausulas)) {
                     $datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
                     $this->cargar_controlador('mensajes', 'mensaje', $datos);
@@ -90,7 +90,7 @@ class tabla extends \core\Controlador {
     public function validar_form_modificar(array $datos = array()) {
 
         $validaciones = array(
-            "id_usuario" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuario/tabla/id_usuario"
+            "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
             ,"nombre" => "errores_requerido && errores_texto && errores_unicidad_insertar:nombre/tabla/nombre"
             , "apellidoPaterno" => "errores_texto"
             , "apellidoMaterno" => "errores_texto"
@@ -98,9 +98,9 @@ class tabla extends \core\Controlador {
             , 'username' => 'errores_texto'
             , 'password' => 'errores_texto'
             , 'puntuacion' => 'errores_texto'
-        );
+            );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
-            //print_r($datos);
+            print_r($datos);
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
         } else {
             $datos['values']['puntuacion'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['puntuacion']);
@@ -119,7 +119,7 @@ class tabla extends \core\Controlador {
     public function form_borrar(array $datos = array()) {
 
         $validaciones = array(
-            "id_usuarios" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuarios/tabla/id_usuarios"
+            "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
             $datos['mensaje'] = 'Datos erróneos para identificar el artículo a borrar';
@@ -127,7 +127,7 @@ class tabla extends \core\Controlador {
             $this->cargar_controlador('mensajes', 'mensaje', $datos);
             return;
         } else {
-            $clausulas['where'] = " id_usuarios = {$datos['values']['id_usuario']} ";
+            $clausulas['where'] = " id = {$datos['values']['id']} ";
             if (!$filas = \modelos\Datos_SQL::table("tabla")->select($clausulas)) {
                 $datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
                 $this->cargar_controlador('mensajes', 'mensaje', $datos);
@@ -146,7 +146,7 @@ class tabla extends \core\Controlador {
 
     public function validar_form_borrar(array $datos = array()) {
         $validaciones = array(
-            "id_usuarios" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id_usuarios/tabla/id_usuarios"
+            "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
             $datos['mensaje'] = 'Datos erróneos para identificar el artículo a borrar';

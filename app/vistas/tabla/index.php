@@ -34,8 +34,8 @@
                                                 <td>{$fila['password']}</td>
                                                 <td>{$fila['puntuacion']}</td>
 						<td>
-							<a class='boton' href='?menu=tabla&submenu=form_modificar&id_usuario={$fila['id_usuario']}' >modificar</a>
-							<a class='boton' href='?menu=tabla&submenu=form_borrar&_usuario={$fila['id_usuario']}' >borrar</a>
+							<a class='boton' href='?menu=tabla&submenu=form_modificar&id={$fila['id']}' >modificar</a>
+							<a class='boton' href='?menu=tabla&submenu=form_borrar&_usuario={$fila['id']}' >borrar</a>
 						</td>
 					</tr>
 					";
