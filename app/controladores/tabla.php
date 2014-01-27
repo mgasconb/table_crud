@@ -35,7 +35,7 @@ class tabla extends \core\Controlador {
             , 'correo' => 'errores_texto'
             , 'username' => 'errores_texto'
             , 'password' => 'errores_texto'
-            , 'puntuacion' => 'errores_texto'
+            , 'puntuacion' => 'errores_precio'
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos))
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
@@ -97,7 +97,7 @@ class tabla extends \core\Controlador {
             , 'correo' => 'errores_texto'
             , 'username' => 'errores_texto'
             , 'password' => 'errores_texto'
-            , 'puntuacion' => 'errores_texto'
+            , 'puntuacion' => 'errores_precio'
             );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
             print_r($datos);
