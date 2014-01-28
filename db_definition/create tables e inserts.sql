@@ -3,6 +3,7 @@ create database if not exists gasbiumi_table_crud;
 use gasbiumi_table_crud;
 drop table if exists daw2_usuarios;
 
+
 CREATE TABLE `daw2_tabla` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
