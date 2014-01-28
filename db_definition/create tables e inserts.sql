@@ -13,7 +13,7 @@ CREATE TABLE `daw2_tabla` (
   `username` varchar(50) DEFAULT NULL,
   `password` varchar(250) DEFAULT NULL,
   `puntuacion` decimal(10,2) DEFAULT NULL,
-  `dt_registro` datetime DEFAULT CURRENT_TIMESTAMP,
+  `dt_registro` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ;
 
