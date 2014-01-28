@@ -1,6 +1,6 @@
-drop database if exists gasbiumi_table_crud;
+/*drop database if exists gasbiumi_table_crud;
 create database if not exists gasbiumi_table_crud;
-use gasbiumi_table_crud;
+use gasbiumi_table_crud;*/
 drop table if exists daw2_usuarios;
 
 
