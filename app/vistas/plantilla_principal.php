@@ -112,8 +112,8 @@
 		<div id="pie">
 			
 			Pie del documento.<br />
-			Documento creado por Jesús María de Quevedo Tomé. <a href="mailto:jequeto@gmail.com">Contactar</a><br />
-			Fecha última actualización: 15 de diciembre de 2013.
+			Documento creado por Miguel Gascón  <a href="mailto:jequeto@gmail.com">Contactar</a><br />
+			Fecha última actualización: 29 de enero de 2014.
 		</div>
 		
 		<?php echo \core\HTML_Tag::post_request_form(); ?>
