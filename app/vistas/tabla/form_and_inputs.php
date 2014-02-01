@@ -22,6 +22,9 @@
         Puntuación: <input id='puntuacion' name='puntuacion' type='text' size='20'  maxlength='20' value='<?php echo \core\Array_Datos::values('puntuacion', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('puntuacion', $datos); ?>
 	<br />
+        Fecha registro: <input id='dt_registro' name='dt_registro' type='text' size='20'  maxlength='20' value='<?php echo \core\Array_Datos::values('dt_registro', $datos); ?>'/>
+	<?php echo \core\HTML_Tag::span_error('dt_registro', $datos); ?>
+	<br />
 	<?php echo \core\HTML_Tag::span_error('errores_validacion', $datos); ?>
 	
 	<input type='submit' value='Enviar'>

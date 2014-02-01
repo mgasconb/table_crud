@@ -36,10 +36,12 @@ class tabla extends \core\Controlador {
             , 'username' => 'errores_texto && errores_requerido'
             , 'password' => 'errores_texto && errores_requerido'
             , 'puntuacion' => 'errores_precio'
+            , 'dt_registro' => 'errores_fecha_hora'
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos))
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
         else {
+            $datos['values']['dt_registro'] = \core\Conversiones::fecha_hora_es_a_mysql($datos['values']['dt_registro']);
             $datos['values']['puntuacion'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['puntuacion']);
             $datos['values']['password'] = md5($datos['values']['password']);
             if (!$validacion = \modelos\Datos_SQL::table("tabla")->insert($datos["values"])) // Devuelve true o false
@@ -75,6 +77,7 @@ class tabla extends \core\Controlador {
                     return;
                 } else {
                     $datos['values'] = $filas[0];
+                    $datos['values']['dt_registro'] = \core\Conversiones::fecha_hora_mysql_a_es($datos['values']['dt_registro']);
                     $datos['values']['puntuacion'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['puntuacion']);
                     $datos['values']['password'] = md5($datos['values']['password']);
 
@@ -100,11 +103,13 @@ class tabla extends \core\Controlador {
             , 'username' => 'errores_texto && errores_requerido'
             , 'password' => 'errores_texto && errores_requerido'
             , 'puntuacion' => 'errores_precio'
+            , 'dt_registro' => 'errores_fecha_hora'
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
             print_r($datos);
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
         } else {
+            $datos['values']['dt_registro'] = \core\Conversiones::fecha_hora_es_a_mysql($datos['values']['dt_registro']);
             $datos['values']['puntuacion'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['puntuacion']);
             if (!$validacion = \modelos\Datos_SQL::table("tabla")->update($datos["values"])) // Devuelve true o false
                 $datos["errores"]["errores_validacion"] = "No se han podido grabar los datos en la bd.";
@@ -129,7 +134,6 @@ class tabla extends \core\Controlador {
             $this->cargar_controlador('mensajes', 'mensaje', $datos);
             return;
         } else {
-            $datos['values']['password'] = md5($datos['values']['password']);
             $clausulas['where'] = " id = {$datos['values']['id']} ";
             if (!$filas = \modelos\Datos_SQL::table("tabla")->select($clausulas)) {
                 $datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
@@ -137,6 +141,7 @@ class tabla extends \core\Controlador {
                 return;
             } else {
                 $datos['values'] = $filas[0];
+                $datos['values']['dt_registro'] = \core\Conversiones::fecha_hora_mysql_a_es($datos['values']['dt_registro']);
                 $datos['values']['puntuacion'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['puntuacion']);
                 $clausulas = array('order_by' => " nombre ");
                 $datos['categorias'] = \modelos\Datos_SQL::select($clausulas, 'categorias');

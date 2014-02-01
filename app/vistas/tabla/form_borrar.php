@@ -9,5 +9,6 @@
                 window.document.getElementById("username").disabled='disabled';
                 window.document.getElementById("password").disabled='disabled';
                 window.document.getElementById("puntuacion").disabled='disabled';                
+                window.document.getElementById("dt_registro").disabled='disabled';      
 	</script>
 </div>

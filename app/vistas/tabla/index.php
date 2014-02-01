@@ -19,6 +19,7 @@
                 <th>nombre de usuario</th>
                 <th>contraseña</th>
                 <th>puntuacion</th>
+                <th>dt_registro</th>
             </tr>
         </thead>
         <tbody>
@@ -32,7 +33,8 @@
                                                 <td>{$fila['correo']}</td>
                                                 <td>{$fila['username']}</td>
                                                 <td>{$fila['password']}</td>
-                                                <td>{$fila['puntuacion']}</td>
+                                                <td>".\core\Conversiones::decimal_punto_a_coma_y_miles($fila['puntuacion'])."</td>
+                                                <td>".\core\Conversiones::fecha_hora_mysql_a_es($fila['dt_registro'])."</td>
 						<td>
                                                         ".\core\HTML_Tag::a_boton_onclick("boton", array("tabla", "form_modificar", $fila['id']), "modificar")."".
                                                         \core\HTML_Tag::a_boton_onclick("boton", array("tabla", "form_borrar", $fila['id']), "borrar").
@@ -42,7 +44,7 @@
             }
             echo "
 				<tr>
-					<td colspan='7'></td>
+					<td colspan='8'></td>
 					<td><a class='boton' href='?menu=tabla&submenu=form_insertar' >insertar</a></td>
 				</tr>
 			";
