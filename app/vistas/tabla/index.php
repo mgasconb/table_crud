@@ -42,7 +42,7 @@
             }
             echo "
 				<tr>
-					<td colspan='4'></td>
+					<td colspan='7'></td>
 					<td><a class='boton' href='?menu=tabla&submenu=form_insertar' >insertar</a></td>
 				</tr>
 			";
