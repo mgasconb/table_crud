@@ -10,8 +10,8 @@ CREATE TABLE `daw2_tabla` (
   `apellidoPaterno` varchar(50) DEFAULT NULL,
   `apellidoMaterno` varchar(50) DEFAULT NULL,
   `correo` varchar(100) DEFAULT NULL,
-  `username` varchar(50) DEFAULT NULL,
-  `password` varchar(250) DEFAULT NULL,
+  `username` varchar(50) NOT NULL,
+  `password` varchar(250) NOT NULL,
   `puntuacion` decimal(10,2) DEFAULT NULL,
   `dt_registro` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
