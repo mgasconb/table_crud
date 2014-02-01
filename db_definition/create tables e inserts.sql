@@ -1,9 +1,9 @@
 drop database if exists gasbiumi_table_crud;
 create database if not exists gasbiumi_table_crud;
 use gasbiumi_table_crud;
-
-CREATE TABLE `usuarios` (
-  `id_usuario` int(11) NOT NULL AUTO_INCREMENT,
+drop table if exists daw2_tabla;
+CREATE TABLE `daw2_tabla` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellidoPaterno` varchar(50) DEFAULT NULL,
   `apellidoMaterno` varchar(50) DEFAULT NULL,
@@ -12,10 +12,10 @@ CREATE TABLE `usuarios` (
   `password` varchar(250) DEFAULT NULL,
   `puntuacion` decimal(10,2) DEFAULT NULL,
   `dt_registro` datetime DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_usuario`)
+  PRIMARY KEY (`id`)
 ) ;
 
-INSERT INTO `usuarios`
+INSERT INTO `daw2_tabla`
 (`nombre`,
 `apellidoPaterno`,
 `apellidoMaterno`,
