@@ -34,7 +34,8 @@
                                                 <td>{$fila['password']}</td>
                                                 <td>{$fila['puntuacion']}</td>
 						<td>
-							<a class='boton' href='?menu=tabla&submenu=form_modificar&id={$fila['id']}' >modificar</a>
+                                                        ".\core\HTML_Tag::a_boton_onclick("boton", array("tabla", "form_modificar", $fila['id']), "modificar").
+							"<a class='boton' href='?menu=tabla&submenu=form_modificar&id={$fila['id']}' >modificar</a>
 							<a class='boton' href='?menu=tabla&submenu=form_borrar&id={$fila['id']}' >borrar</a>
 						</td>
 					</tr>

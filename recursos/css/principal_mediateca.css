@@ -1,0 +1,130 @@
+/* 
+    Document   : principal
+    Created on : 28-jun-2013, 10:04:51
+    Author     : jesus
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body{
+    background: #2E9AFE;
+}
+
+a{
+    color: #FFD92E;
+}
+
+h1#titulo {
+    display: inline;
+}
+
+hr {
+    height: 5px;
+    background-color: black;
+}
+
+#div_menu{
+    margin: auto;
+    width: 80%;
+    height: 50px;
+}
+/* Antiguo menu
+#menu{
+    list-style: none;
+    padding: 1.5% 0 0 0;
+    font-weight: 900;
+}
+
+.elementos_menu{
+    height: 20%;
+}
+
+.item_menu_1 , .item_menu_2{    
+    text-align: center;
+    width: 10%;    
+    float:left;
+    margin: 0 2% 0 2%;
+}
+
+.item_menu_1{
+    background: none repeat scroll 0 center #0086FC;
+}
+
+.item_menu_2{
+    background: none repeat scroll 0 center #56B0FF
+}
+
+.item_menu_1 a:hover , .item_menu_2 a:hover {
+    color:#fff;
+}
+
+.item_menu_1 a , .item_menu_2 a{
+    color: #FFD92E;
+}
+*/
+
+ul.menu
+{
+    list-style:none;
+    font-weight: 900;
+}
+
+.item
+{
+    /*position:relative; /* Las coordenadas de los ul inferiores serán relativas al <li> que los contiene */
+    /*width:70px;*/
+    background-color: #BFEBFF;
+    border-radius: 15px;
+    width: 10%;    
+    text-align: center;
+}
+
+ul.menu ul
+{
+    /*position:absolute; /* Esta posición es relativa al <li> que contiene a este <ul> */
+    /*left:30px; /* Para que no monte sobre el <li> */
+    top:-1px;
+    display:none;
+    list-style:none;
+}
+
+.item:hover{
+    width: 80%;
+    float: left;
+    padding-left: 10%;
+    text-align: left;
+}
+
+.item:hover > .submenu
+{
+    display:block;    
+}
+
+.subitem{
+    float: left;
+    margin: 0 5% 2%;
+    width: 15%;
+}
+.item_menu_1 , .item_menu_2{    
+    text-align: center;
+}
+
+.item_menu_1{
+    background: none repeat scroll 0 center #0086FC;
+}
+
+.item_menu_2{
+    background: none repeat scroll 0 center #56B0FF
+}
+
+.item_menu_1 a:hover , .item_menu_2 a:hover {
+    color:#fff;
+}
+
+.item_menu_1 a , .item_menu_2 a{
+    color: #FFD92E;
+}
