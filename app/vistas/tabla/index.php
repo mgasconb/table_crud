@@ -34,10 +34,9 @@
                                                 <td>{$fila['password']}</td>
                                                 <td>{$fila['puntuacion']}</td>
 						<td>
-                                                        ".\core\HTML_Tag::a_boton_onclick("boton", array("tabla", "form_modificar", $fila['id']), "modificar").
-							"<a class='boton' href='?menu=tabla&submenu=form_modificar&id={$fila['id']}' >modificar</a>
-							<a class='boton' href='?menu=tabla&submenu=form_borrar&id={$fila['id']}' >borrar</a>
-						</td>
+                                                        ".\core\HTML_Tag::a_boton_onclick("boton", array("tabla", "form_modificar", $fila['id']), "modificar")."".
+                                                        \core\HTML_Tag::a_boton_onclick("boton", array("tabla", "form_borrar", $fila['id']), "borrar").
+						"</td>
 					</tr>
 					";
             }
