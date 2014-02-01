@@ -53,7 +53,7 @@
                 <?php if (isset($_GET["administrator"])): ?>
                     Administrator:
                 <?php endif; ?>
-                Aplicación con patrón MVC</h1>
+                Table_CRUD Miguel Gascón Biurrun</h1>
         </div>
 
         <div id="div_derecha_logo">
@@ -102,7 +102,7 @@
         <div id="pie">
 
             Pie del documento.<br />
-            Documento creado por Miguel Gascón Biurrun. <a href="mailto:jequeto@gmail.com">Contactar</a><br />
+            Documento creado por Miguel Gascón Biurrun. <a href="mailto:mgasconb@gmail.com">Contactar</a><br />
             Fecha última actualización: 1 de febrero de 2014.
         </div>
 
