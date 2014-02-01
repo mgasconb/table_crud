@@ -3,6 +3,7 @@
 create database if not exists gasbiumi_table_crud;
 use gasbiumi_table_crud;*/
 
+/*Password= user+00*/
 drop table if exists daw2_tabla;
 CREATE TABLE `daw2_tabla` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -11,7 +12,7 @@ CREATE TABLE `daw2_tabla` (
   `apellidoMaterno` varchar(50) DEFAULT NULL,
   `correo` varchar(100) DEFAULT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(250) NOT NULL,
+  `password` varchar(250) NOT NULL, 
   `puntuacion` decimal(10,2) DEFAULT NULL,
   `dt_registro` datetime DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
@@ -28,11 +29,11 @@ INSERT INTO `daw2_tabla`
 
 VALUES
 
-('miguel', 'gascon', 'biurrun', 'mgasconb@hotmail.com', 'gasbiumi', 'mgasconb', 50.3),
-('carlos', 'gascon', 'biurrun', 'cgasconb@hotmail.com', 'gasbiuca', 'carlos', 465.23),
-('daniel', 'aaa', 'aaa', 'daa@hotmail.com', 'daaa', 'daaa', 560.3),
-('juan', 'aaa', 'aaa', 'jaaa@hotmail.com', 'jaaa', 'jaaa', 564.33),
-('luis', 'aaa', 'aaa', 'laaa@hotmail.com', 'laaa', 'laaa',  2.78)
+('miguel', 'gascon', 'biurrun', 'mgasconb@hotmail.com', 'gasbiumi', '57c121e25c962050269a0fedae41d5bf', 50.3),
+('carlos', 'gascon', 'biurrun', 'cgasconb@hotmail.com', 'gasbiuca', '7e3f40511b178afb7f9e2c1a7a9e55af', 465.23),
+('daniel', 'aaa', 'aaa', 'daa@hotmail.com', 'daaa', 'b59ece568af00848f7425a6a93f5c2e0', 560.3),
+('juan', 'aaa', 'aaa', 'jaaa@hotmail.com', 'jaaa', '5c47a79da5ece33687f062ac2260b9cb', 564.33),
+('luis', 'aaa', 'aaa', 'laaa@hotmail.com', 'laaa', '1e9043ac94d1f91538f37cfb535fcbff',  2.78)
 ;
 
 
