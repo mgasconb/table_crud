@@ -33,14 +33,15 @@ class tabla extends \core\Controlador {
             , "apellidoPaterno" => "errores_texto"
             , "apellidoMaterno" => "errores_texto"
             , 'correo' => 'errores_texto'
-            , 'username' => 'errores_texto'
-            , 'password' => 'errores_texto'
+            , 'username' => 'errores_texto && errores_requerido'
+            , 'password' => 'errores_texto && errores_requerido'
             , 'puntuacion' => 'errores_precio'
         );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos))
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
         else {
             $datos['values']['puntuacion'] = \core\Conversiones::decimal_coma_a_punto($datos['values']['puntuacion']);
+            $datos['values']['password'] = md5($datos['values']['password']);
             if (!$validacion = \modelos\Datos_SQL::table("tabla")->insert($datos["values"])) // Devuelve true o false
                 $datos["errores"]["errores_validacion"] = "No se han podido grabar los datos en la bd.";
         }
@@ -75,6 +76,7 @@ class tabla extends \core\Controlador {
                 } else {
                     $datos['values'] = $filas[0];
                     $datos['values']['puntuacion'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['puntuacion']);
+                    $datos['values']['password'] = md5($datos['values']['password']);
 
                     $clausulas = array('order_by' => " nombre ");
                     $datos['tabla'] = \modelos\Datos_SQL::table("tabla")->select($clausulas);
@@ -90,15 +92,15 @@ class tabla extends \core\Controlador {
     public function validar_form_modificar(array $datos = array()) {
 
         $validaciones = array(
-            "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id"
-            ,"nombre" => "errores_requerido && errores_texto && errores_unicidad_insertar:nombre/tabla/nombre"
+            "id" => "errores_requerido && errores_numero_entero_positivo && errores_referencia:id/tabla/id",
+            "nombre" => "errores_requerido && errores_texto && errores_unicidad_insertar:nombre/tabla/nombre"
             , "apellidoPaterno" => "errores_texto"
             , "apellidoMaterno" => "errores_texto"
             , 'correo' => 'errores_texto'
-            , 'username' => 'errores_texto'
-            , 'password' => 'errores_texto'
+            , 'username' => 'errores_texto && errores_requerido'
+            , 'password' => 'errores_texto && errores_requerido'
             , 'puntuacion' => 'errores_precio'
-            );
+        );
         if (!$validacion = !\core\Validaciones::errores_validacion_request($validaciones, $datos)) {
             print_r($datos);
             $datos["errores"]["errores_validacion"] = "Corrige los errores.";
@@ -127,6 +129,7 @@ class tabla extends \core\Controlador {
             $this->cargar_controlador('mensajes', 'mensaje', $datos);
             return;
         } else {
+            $datos['values']['password'] = md5($datos['values']['password']);
             $clausulas['where'] = " id = {$datos['values']['id']} ";
             if (!$filas = \modelos\Datos_SQL::table("tabla")->select($clausulas)) {
                 $datos['mensaje'] = 'Error al recuperar la fila de la base de datos';
