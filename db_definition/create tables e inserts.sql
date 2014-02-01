@@ -1,7 +1,8 @@
 /*Mi tabla*/
 /*drop database if exists gasbiumi_table_crud;
 create database if not exists gasbiumi_table_crud;
-use gasbiumi_table_crud;
+use gasbiumi_table_crud;*/
+
 drop table if exists daw2_tabla;
 CREATE TABLE `daw2_tabla` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
