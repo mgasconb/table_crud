@@ -13,6 +13,14 @@ h1#titulo {
 	display: inline;
 }
 
+body{
+    background-image: -o-linear-gradient(bottom, #1AC9D9 0%, #365BFF 100%);
+    background-image: -moz-linear-gradient(bottom, #1AC9D9 0%, #365BFF 100%);
+    background-image: -webkit-linear-gradient(bottom, #1AC9D9 0%, #365BFF 100%);
+    background-image: -ms-linear-gradient(bottom, #1AC9D9 0%, #365BFF 100%);
+    background-image: linear-gradient(to bottom, #1AC9D9 0%, #365BFF 100%);
+    font-weight: bold;
+}
 
 
 
@@ -26,70 +34,6 @@ div#div_derecha_logo {
 	right: 5px;
 	background-color: yellow;
 }
-
-/*Antiguo
-div#div_menu {
-	padding: 5px;
-	background-color: lightblue;
-}
-#div_menu{
-    margin: auto;
-    width: 80%;
-    height: 50px;
-}
-div#div_menu fieldset {
-	
-	padding: 0px 0px 5px 0px;
-}
-
-div#div_menu fieldset legend {
-	
-	color: blue;
-}
-
-ul#menu {
-	margin: 0px;
-	padding: 5px;
-	list-style: none;
-	color: white;
-}
-
-ul#menu li.item {
-	float: left;
-	border: 1px solid green;
-	background-color: lightgreen;
-	padding: 5px;
-	margin: 0px 0px;
-	background-color: blue;
-
-}
-
-ul#menu li.item:hover {
-	position: relative;
-	z-index: 1;
-	border: 1px yellow solid;
-	outline: yellow dotted thick;
-}
-
-ul#menu li.item a {
-	text-decoration: none;
-	color: white;
-
-}
-
-ul#menu li.item a:visited {
-	text-decoration: none;
-}
-
-ul#menu li.item a:hover {
-	color: yellow;
-}
-
-ul#menu li.item a:active {
-	color: orange;
-	background-color: #FF704D;
-}
-*/
 
 /*Inicio menu nuevo*/
 
@@ -144,6 +88,7 @@ ul.menu ul
 }
 .item_menu_1 , .item_menu_2{    
     text-align: center;
+    border-radius: 10px;
 }
 
 .item_menu_1{
@@ -160,6 +105,7 @@ ul.menu ul
 
 .item_menu_1 a , .item_menu_2 a{
     color: #FFD92E;
+    cursor: pointer;
 }
 
 /*Fin menu nuevo*/
@@ -201,4 +147,9 @@ table {
 
 table td, table th {
 	padding: 5px;
+}
+
+
+#tabla_inicio>*{
+    border: 1px black solid;    
 }

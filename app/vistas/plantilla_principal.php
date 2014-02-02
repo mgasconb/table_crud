@@ -80,10 +80,10 @@
                 <li class="item">MENU
                     <ul class="submenu">
                         <li class="subitem item_menu_1">
-                            <a><?php echo \core\HTML_Tag::li_menu("item", array("inicio"), "Inicio"); ?></a>
+                            <?php echo \core\HTML_Tag::a_boton_onclick("enlace_menu", array("inicio", "index"), "Inicio"); ?>
                         </li>                        
                         <li class="subitem item_menu_2">
-                            <a><?php echo \core\HTML_Tag::li_menu("item", array("tabla"), "Tabla"); ?></a>
+                            <?php echo \core\HTML_Tag::a_boton_onclick("enlace_menu", array("tabla"), "Tabla"); ?>
                         </li>
                     </ul>
                 </li>
@@ -103,7 +103,7 @@
 
             Pie del documento.<br />
             Documento creado por Miguel Gascón Biurrun. <a href="mailto:mgasconb@gmail.com">Contactar</a><br />
-            Fecha última actualización: 1 de febrero de 2014.
+            Fecha última actualización: 2 de febrero de 2014.
         </div>
 
         <?php echo \core\HTML_Tag::post_request_form(); ?>

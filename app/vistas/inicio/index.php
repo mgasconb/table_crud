@@ -3,7 +3,7 @@
     De la lectura de http://en.wikipedia.org/wiki/Create,_read,_update_and_delete  <br/>
     In Database applications, the acronym CRUD refers to all of the major functions that are implemented in relational database applications .<br/>
     Each letter in the acronym can map to a standard SQL statement and HTTP method: <br/><br/>
-    <table border="1">
+    <table id="tabla_inicio">
         <thead>
             <tr>
                 <td>Operation</td>
@@ -42,6 +42,6 @@
 
     <h3>2. Objetivo</h3>
     Hacer el mantenimiento (altas, bajas, consultas y modificaciones de filas) de una tabla de datos alojada en mysql <br/>
-    con ayuda de una aplicación web escrita en php siguiendo el modelo vista controlador.
+    con ayuda de una aplicación web escrita en php siguiendo el modelo vista controlador.<br/><br/><br/><br/><br/><br/>
 
 </div>
