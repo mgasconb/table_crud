@@ -12,14 +12,14 @@
     <table border='1'>
         <thead>
             <tr>
-                <th>nombre</th>
-                <th>apellido paterno</th>
-                <th>apellido materno</th>
-                <th>correo</th>
-                <th>nombre de usuario</th>
-                <th>contraseña</th>
-                <th>puntuacion</th>
-                <th>dt_registro</th>
+                <th>Nombre</th>
+                <th>Apellido paterno</th>
+                <th>Apellido materno</th>
+                <th>Correo</th>
+                <th>Nombre de usuario</th>
+                <th>Contraseña</th>
+                <th>Puntuacion</th>
+                <th>Fecha registro</th>
             </tr>
         </thead>
         <tbody>
