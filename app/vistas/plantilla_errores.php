@@ -30,7 +30,7 @@
 		
 	</head>
 
-	<body style='border: 1px solid; width: 995px; margin-left: auto; margin-right: auto;  padding: 5px;'>
+	<body style='border: 1px solid; width: 995px; margin-left: auto; margin-right: auto;  padding: 5px; margin-top: 50px;'>
 		<h1>Documento no encontrado. </h1>
 		<?php 
 			/*if (isset($datos['mensaje']))
