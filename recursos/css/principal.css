@@ -9,8 +9,17 @@ root {
     display: block;
 }
 
+a{
+    color: black;
+    font-style:italic;
+}
+
+a:hover{
+    color: white;
+}
+
 h1#titulo {
-	display: inline;
+    display: inline;
 }
 
 body{
@@ -25,14 +34,14 @@ body{
 
 
 div#div_derecha_logo {
-	position: absolute;
-	float: right;
-	width: 300px;
-	padding: 2px;
-	border: 2px solid grey;
-	top: 5px;
-	right: 5px;
-	background-color: yellow;
+    position: absolute;
+    float: right;
+    width: 300px;
+    padding: 2px;
+    border: 2px solid grey;
+    top: 5px;
+    right: 5px;
+    background-color: yellow;
 }
 
 /*Inicio menu nuevo*/
@@ -111,45 +120,55 @@ ul.menu ul
 /*Fin menu nuevo*/
 
 form {
-	margin: 5px;
-	border: 3px solid lightgrey;
-	padding: 5px;
-	background-color: lightblue;
+    margin: 5px;
+    border: 3px solid lightgrey;
+    padding: 5px;
+    background-color: lightblue;
 }
 
 .requerido {
-	
-	color: orange;
+
+    color: orange;
 }
 
 
 div#pie {
-	outline: 5px solid lightblue;
-	margin: 10px 5px;
-	border: 3px solid lightgrey;
-	background-color: lightblue;
-	padding: 5px;
+    outline: 5px solid lightblue;
+    border: 3px solid lightgrey;
+    background-color: lightblue;
+    padding: 5px;
+    margin: 2% auto auto;width: 80%;
 }
 
 .boton {
-	margin: 5px 5px;
-	padding: 2px;
-	line-height: 170%;
-	background-color: lightgray;
-	border: 1px solid black;
-	text-decoration: none;
+    margin: 5px 5px;
+    padding: 2px;
+    line-height: 170%;
+    background: none repeat scroll 0 center #56B0FF;
+    border: 1px solid black;
+    text-decoration: none;
+    color: #FFD92E;
+    cursor: pointer;
 }
 
 table {
-	border: 3px solid black;
-	border-collapse: collapse;
+    border: 3px solid #BFEBFF;
+    border-collapse: collapse;
+    font-weight:bold;
+}
+
+table thead{
+    border-collapse: separate;
+    border: 3px solid #BFEBFF;
 }
 
 table td, table th {
-	padding: 5px;
+    padding: 5px;
+    border: 1px solid #BFEBFF;
+    text-align: center
 }
 
 
-#tabla_inicio>*{
+/*#tabla_inicio>*{
     border: 1px black solid;    
-}
+}*/
