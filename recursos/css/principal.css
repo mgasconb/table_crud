@@ -54,6 +54,9 @@ div#div_derecha_logo {
     right: 5px;
     background-color: yellow;
 }
+div#div_derecha_logo a:hover{
+    color:darkgrey;
+}
 
 /*Inicio menu nuevo*/
 
