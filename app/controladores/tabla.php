@@ -144,7 +144,7 @@ class tabla extends \core\Controlador {
                 $datos['values']['dt_registro'] = \core\Conversiones::fecha_hora_mysql_a_es($datos['values']['dt_registro']);
                 $datos['values']['puntuacion'] = \core\Conversiones::decimal_punto_a_coma_y_miles($datos['values']['puntuacion']);
                 $clausulas = array('order_by' => " nombre ");
-                $datos['categorias'] = \modelos\Datos_SQL::select($clausulas, 'categorias');
+                $datos['categorias'] = \modelos\Datos_SQL::select($clausulas, 'tabla');
             }
         }
         $datos['view_content'] = \core\Vista::generar(__FUNCTION__, $datos);
