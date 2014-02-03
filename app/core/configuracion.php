@@ -47,7 +47,7 @@ class Configuracion {
 	
 	
 	// localhost
-	
+	/*
             public static $db = array(
 		'server'   => 'localhost',
 		'user'     => 'daw2_user',
@@ -56,19 +56,19 @@ class Configuracion {
 		'prefix_'  => 'daw2_'
 	);
          
-	
+	*/
 
 	// hostinger
-        /*
+        
 	public static $db = array(
 		'server'   => 'mysql.hostinger.es',
-		'user'     => 'u130051890_tct',
-		'password' => 'gasbiumi',
-		'db_name'   => 'u130051890_tct',
+		'user'     => 'u130051890_table',
+		'password' => 'BIV98',
+		'db_name'   => 'u130051890_table',
 		'prefix_'  => 'daw2_'
 	);
          
-         */
+         
 	
 	/**
 	 * Define array llamado recursos_y_suariosla con la definición de todos los permisos de acceso a los recursos de la aplicación.
