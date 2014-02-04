@@ -86,7 +86,7 @@ class Distribuidor {
 		}
 		else {
 			$datos['mensaje'] = "La clase <b>$controlador_clase</b> no existe.";
-			return self::cargar_controlador("errores", "error_404", $datos);
+			return self::cargar_controlador("errores", "index", $datos);
 		}
 	}
 	

@@ -50,6 +50,7 @@ class ranking extends \core\Controlador {
         if (!$validacion) //Devolvemos el formulario para que lo intente corregir de nuevo
             $this->cargar_controlador('ranking', 'form_insertar', $datos);
         else {
+            \core\HTTP_Respuesta::set_header_line("Location", "http:\\localhost\table_crud\ranking");
             // Se ha grabado la modificación. Devolvemos el control al la situacion anterior a la petición del form_modificar
             $datos = array("alerta" => "Se han grabado correctamente los detalles");
             // Definir el controlador que responderá después de la inserción
