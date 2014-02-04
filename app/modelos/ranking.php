@@ -2,7 +2,7 @@
 
 namespace modelos;
 
-class tabla extends \core\sgbd\bd {
+class ranking extends \core\sgbd\bd {
 	
 	public static $tabla = 'categorias';
 	

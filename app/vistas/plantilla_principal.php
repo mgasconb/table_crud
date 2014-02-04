@@ -83,7 +83,7 @@
                             <?php echo \core\HTML_Tag::a_boton_onclick("enlace_menu", array("inicio", "index"), "Inicio"); ?>
                         </li>                        
                         <li class="subitem item_menu_2">
-                            <?php echo \core\HTML_Tag::a_boton_onclick("enlace_menu", array("tabla"), "Tabla"); ?>
+                            <?php echo \core\HTML_Tag::a_boton_onclick("enlace_menu", array("ranking"), "Ranking"); ?>
                         </li>
                     </ul>
                 </li>
