@@ -47,7 +47,7 @@ class Configuracion {
 	
 	
 	// localhost
-	/*
+	
             public static $db = array(
 		'server'   => 'localhost',
 		'user'     => 'daw2_user',
@@ -56,10 +56,10 @@ class Configuracion {
 		'prefix_'  => 'daw2_'
 	);
          
-	*/
+	
 
 	// hostinger
-        
+        /*
 	public static $db = array(
 		'server'   => 'mysql.hostinger.es',
 		'user'     => 'u130051890_table',
@@ -67,7 +67,7 @@ class Configuracion {
 		'db_name'   => 'u130051890_table',
 		'prefix_'  => 'daw2_'
 	);
-         
+         */
          
 	
 	/**
