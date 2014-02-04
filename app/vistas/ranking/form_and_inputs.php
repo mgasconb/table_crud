@@ -27,7 +27,7 @@
 	<br />
 	<?php echo \core\HTML_Tag::span_error('errores_validacion', $datos); ?>
 	
-	<input type='submit' value='Enviar'>
-	<input type='reset' value='Limpiar'>
-	<button type='button' onclick='location.assign("?menu=ranking&submenu=index");'>Cancelar</button>
+	<input class="boton" type='submit' value='Enviar'>
+	<input class="boton" type='reset' value='Limpiar'>
+	<button class="boton" type='button' onclick='location.assign("?menu=ranking&submenu=index");'>Cancelar</button>
 </form>
