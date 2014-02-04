@@ -1,4 +1,4 @@
 <div >
-	<h2>Alta de un artículo</h2>
+	<h2>Alta de un usuario del ranking</h2>
 <?php include "form_and_inputs.php"; ?>
 </div>

@@ -1,5 +1,7 @@
 
-<form method='post' action="?menu=<?php echo $datos['controlador_clase']; ?>&submenu=validar_<?php echo $datos['controlador_metodo']; ?>" >
+<!--<form method='post' action="?menu=<?php echo $datos['controlador_clase']; ?>&submenu=validar_<?php echo $datos['controlador_metodo']; ?>" >-->
+    <form method='post' action='"<?php echo \core\url::generar(array($datos['controlador_clase'])) ?>"."/validar_$datos['controlador_clase']" '>
+
 	<input id='id' name='id' type='hidden' value='<?php echo \core\Array_Datos::values('id', $datos); ?>' />
 	Nombre: <input id='nombre' name='nombre' type='text' size='100'  maxlength='100' value='<?php echo \core\Array_Datos::values('nombre', $datos); ?>'/>
 	<?php echo \core\HTML_Tag::span_error('nombre', $datos); ?>
@@ -27,7 +29,7 @@
 	<br />
 	<?php echo \core\HTML_Tag::span_error('errores_validacion', $datos); ?>
 	
-	<input class="boton" type='submit' value='Enviar'>
+        <input class="boton" type='submit' value='Enviar'>
 	<input class="boton" type='reset' value='Limpiar'>
-	<button class="boton" type='button' onclick='location.assign("?menu=ranking&submenu=index");'>Cancelar</button>
+	<button class="boton" type='button' onclick='location.assign("<?php echo \core\URL::generar($datos['controlador_clase'].'/index')?>");'>Cancelar</button>
 </form>

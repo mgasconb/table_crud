@@ -1,5 +1,5 @@
 <div >
-	<h2>Borrar un artículo</h2>
+	<h2>Borrar un usuario del ranking</h2>
 	<?php include "form_and_inputs.php"; ?>
 	<script type='text/javascript'>
 		window.document.getElementById("nombre").disabled='disabled';
