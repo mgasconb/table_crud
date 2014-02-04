@@ -303,8 +303,8 @@ order by orden_nivel_1, orden_nivel_2, texto_menu, texto_submenu
 /*Mi parte*/
 
 /*Password = user+00*/
-drop table if exists daw2_tabla;
-CREATE TABLE `daw2_tabla` (
+drop table if exists daw2_ranking;
+CREATE TABLE `daw2_ranking` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellidoPaterno` varchar(50) DEFAULT NULL,
@@ -317,7 +317,7 @@ CREATE TABLE `daw2_tabla` (
   PRIMARY KEY (`id`)
 ) ;
 
-INSERT INTO `daw2_tabla`
+INSERT INTO `daw2_ranking`
 (`nombre`,
 `apellidoPaterno`,
 `apellidoMaterno`,
