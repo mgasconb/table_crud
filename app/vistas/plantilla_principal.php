@@ -80,7 +80,7 @@
                 <li class="item">MENU
                     <ul class="submenu">
                         <li class="subitem item_menu_1">
-                            <?php echo \core\HTML_Tag::a_boton_onclick("enlace_menu", array("inicio", "index"), "Inicio"); ?>
+                            <?php echo \core\HTML_Tag::a_boton_onclick("enlace_menu", array("inicio"), "Inicio"); ?>
                         </li>                        
                         <li class="subitem item_menu_2">
                             <?php echo \core\HTML_Tag::a_boton_onclick("enlace_menu", array("ranking"), "Ranking"); ?>

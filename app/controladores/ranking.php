@@ -1,5 +1,4 @@
 <?php
-
 namespace controladores;
 
 class ranking extends \core\Controlador {
@@ -53,6 +52,7 @@ class ranking extends \core\Controlador {
             // Se ha grabado la modificación. Devolvemos el control al la situacion anterior a la petición del form_modificar
             $datos = array("alerta" => "Se han grabado correctamente los detalles");
             // Definir el controlador que responderá después de la inserción
+            \core\HTTP_Respuesta::set_header_line("Location", \core\url::generar("ranking"));
             $this->cargar_controlador('ranking', 'index', $datos);
         }
     }
@@ -119,6 +119,7 @@ class ranking extends \core\Controlador {
         else {
             $datos = array("alerta" => "Se han modificado correctamente.");
             // Definir el controlador que responderá después de la inserción
+            \core\HTTP_Respuesta::set_header_line("Location", \core\url::generar("ranking"));
             $this->cargar_controlador('ranking', 'index', $datos);
         }
     }
@@ -169,6 +170,7 @@ class ranking extends \core\Controlador {
                 return;
             } else {
                 $datos = array("alerta" => "Se borrado correctamente.");
+                \core\HTTP_Respuesta::set_header_line("Location", \core\url::generar("ranking"));
                 $this->cargar_controlador('ranking', 'index', $datos);
             }
         }
