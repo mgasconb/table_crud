@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<meta name="generator" content="ApiGen 2.8.0">
+
+	<title>Class modelos\usuarios | table_crud</title>
+
+	<script type="text/javascript" src="resources/combined.js?3715972085"></script>
+	<script type="text/javascript" src="elementlist.js?2298168157"></script>
+	<link rel="stylesheet" type="text/css" media="all" href="resources/style.css?3505392360">
+
+</head>
+
+<body>
+<div id="left">
+	<div id="menu">
+		<a href="index.html" title="Overview"><span>Overview</span></a>
+
+
+		<div id="groups">
+			<h3>Namespaces</h3>
+			<ul>
+				<li><a href="namespace-controladores.html">controladores</a>
+						</li>
+				<li><a href="namespace-core.html">core<span></span></a>
+						<ul>
+				<li><a href="namespace-core.sgbd.html">sgbd</a>
+						</li>
+							</ul></li>
+				<li class="active"><a href="namespace-modelos.html">modelos</a>
+						</li>
+				<li><a href="namespace-PHP.html">PHP</a>
+						</li>
+			</ul>
+		</div>
+
+		<hr>
+
+
+		<div id="elements">
+			<h3>Classes</h3>
+			<ul>
+				<li><a href="class-modelos.Datos_SQL.html">Datos_SQL</a></li>
+				<li><a href="class-modelos.Menu_En_Array.html">Menu_En_Array</a></li>
+				<li><a href="class-modelos.Menu_En_Fichero.html">Menu_En_Fichero</a></li>
+				<li><a href="class-modelos.Modelo_SQL.html">Modelo_SQL</a></li>
+				<li><a href="class-modelos.ranking.html">ranking</a></li>
+				<li class="active"><a href="class-modelos.usuarios.html">usuarios</a></li>
+			</ul>
+
+
+
+
+
+		</div>
+	</div>
+</div>
+
+<div id="splitter"></div>
+
+<div id="right">
+<div id="rightInner">
+	<form id="search">
+		<input type="hidden" name="cx" value="">
+		<input type="hidden" name="ie" value="UTF-8">
+		<input type="text" name="q" class="text">
+		<input type="submit" value="Search">
+	</form>
+
+	<div id="navigation">
+		<ul>
+			<li>
+				<a href="index.html" title="Overview"><span>Overview</span></a>
+			</li>
+			<li>
+				<a href="namespace-modelos.html" title="Summary of modelos"><span>Namespace</span></a>
+			</li>
+			<li class="active">
+<span>Class</span>			</li>
+		</ul>
+		<ul>
+			<li>
+				<a href="tree.html" title="Tree view of classes, interfaces, traits and exceptions"><span>Tree</span></a>
+			</li>
+		</ul>
+		<ul>
+		</ul>
+	</div>
+
+<div id="content" class="class">
+	<h1>Class usuarios</h1>
+
+
+	<div class="description">
+	
+<p>Esta es la clase que debe usarse para acceder a cualquier objeto de la base
+de datos. Incorpora mediante herencia (extends) todos los metodos del sgbd usado
+en la aplicación.</p>
+
+<p>Esta clase debe extender la clase en la que se implementa la conexión con el
+SGBD elegido para la aplicación.</p>
+
+<p>En este caso es mysqli. Si hubiese sido db2 pues se hubira extendido la clase
+que contuviera la implementación para db2.</p>
+
+<p>Después, esta clase \core\sgbd\bd se extenderá cuando se creen las clases
+específicas para implementar la manipulación y recuperación de datos en cada
+tabla, clases que estarán en la carpeta app\datos\nombre_tabla.php</p>
+
+	</div>
+
+	<dl class="tree">
+		<dd style="padding-left:0px">
+			<a href="class-core.sgbd.mysqli.html"><span>core\sgbd\mysqli</span></a>
+			
+			 implements 
+				<a href="class-core.sgbd.SQL_interface.html"><span>core\sgbd\SQL_interface</span></a>
+			
+			
+		</dd>
+		<dd style="padding-left:30px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-core.sgbd.bd.html"><span>core\sgbd\bd</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:60px">
+			<img src="resources/inherit.png" alt="Extended by">
+			<a href="class-modelos.Modelo_SQL.html"><span>modelos\Modelo_SQL</span></a>
+			
+			
+			
+		</dd>
+		<dd style="padding-left:90px">
+			<img src="resources/inherit.png" alt="Extended by">
+<b><span>modelos\usuarios</span></b>			
+			
+			
+		</dd>
+	</dl>
+
+
+
+
+
+
+
+
+	<div class="info">
+		
+		
+		<b>Namespace:</b> <a href="namespace-modelos.html">modelos</a><br>
+		
+
+		<b>Located at</b> <a href="source-class-modelos.usuarios.html#4-152" title="Go to source code">app/modelos/usuarios.php</a><br>
+	</div>
+
+
+
+	<table class="summary" id="methods">
+	<caption>Methods summary</caption>
+	<tr data-order="validar_usuario" id="_validar_usuario">
+
+		<td class="attributes"><code>
+			 public static
+			string
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validar_usuario">#</a>
+		<code><a href="source-class-modelos.usuarios.html#49-77" title="Go to source code">validar_usuario</a>( <span>type <var>$login</var></span>, <span>type <var>$contrasena</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$login</var></dt>
+					<dd><code>type</code><br>$login</dd>
+					<dt><var>$contrasena</var></dt>
+					<dd><code>type</code><br>$contrasena</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>string</code><br>Valores: '' 'existe' 'existe_autenticado' 'existe_autenticado_confirmado'<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="validar_usuario_login_email" id="_validar_usuario_login_email">
+
+		<td class="attributes"><code>
+			 public static
+			
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_validar_usuario_login_email">#</a>
+		<code><a href="source-class-modelos.usuarios.html#82-113" title="Go to source code">validar_usuario_login_email</a>( <span>mixed <var>$datos</var></span> )</code>
+
+		<div class="description short">
+			
+		</div>
+
+		<div class="description detailed hidden">
+			
+
+
+
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	<tr data-order="permisos_usuario" id="_permisos_usuario">
+
+		<td class="attributes"><code>
+			 public static
+			array
+			
+			</code>
+		</td>
+
+		<td class="name"><div>
+		<a class="anchor" href="#_permisos_usuario">#</a>
+		<code><a href="source-class-modelos.usuarios.html#116-147" title="Go to source code">permisos_usuario</a>( <span>string <var>$login</var></span> )</code>
+
+		<div class="description short">
+			
+<p>Recupera los permisos de un usuario de las tablas de la base de datos, y los
+devuelve en forma de array.</p>
+
+		</div>
+
+		<div class="description detailed hidden">
+			
+<p>Recupera los permisos de un usuario de las tablas de la base de datos, y los
+devuelve en forma de array.</p>
+
+
+
+				<h4>Parameters</h4>
+				<div class="list"><dl>
+					<dt><var>$login</var></dt>
+					<dd><code>string</code><br>$login</dd>
+				</dl></div>
+
+				<h4>Returns</h4>
+				<div class="list">
+					<code>array</code><br>Array con los permisos de la forma permisos[controlador][metodo]=true para cada
+permiso recuperado<br>
+				</div>
+
+
+
+
+		</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-modelos.Modelo_SQL.html#methods">modelos\Modelo_SQL</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-modelos.Modelo_SQL.html#_tabla">tabla()</a>, 
+			<a href="class-modelos.Modelo_SQL.html#_table">table()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-core.sgbd.bd.html#methods">core\sgbd\bd</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-core.sgbd.bd.html#_recuperar_filas">recuperar_filas()</a>
+		</code></td>
+	</tr>
+	</table>
+	<table class="summary inherited">
+	<caption>Methods inherited from <a href="class-core.sgbd.mysqli.html#methods">core\sgbd\mysqli</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-core.sgbd.mysqli.html#___construct">__construct()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_commit_transacction">commit_transacction()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_connect">connect()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_delete">delete()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_delete_row">delete_row()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_disconnect">disconnect()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_escape_string">escape_string()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_execute">execute()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_get_prefix_tabla">get_prefix_tabla()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_get_rows">get_rows()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_get_table_name">get_table_name()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_insert">insert()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_insert_row">insert_row()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_last_insert_id">last_insert_id()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_last_query">last_query()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_rollback_transacction">rollback_transacction()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_select">select()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_set_table_name">set_table_name()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_start_transacction">start_transacction()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_update">update()</a>, 
+			<a href="class-core.sgbd.mysqli.html#_update_row">update_row()</a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+
+
+
+
+
+
+	<table class="summary" id="properties">
+	<caption>Properties summary</caption>
+	<tr data-order="validaciones_insert" id="$validaciones_insert">
+		<td class="attributes"><code>
+			public static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-modelos.usuarios.html#8-19" title="Go to source code"><var>$validaciones_insert</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-quote">'login'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_login &amp;&amp; errores_unicidad_insertar:login/usuarios/login'</span>,
+	<span class="php-quote">'email'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_email &amp;&amp; errores_unicidad_insertar:email/usuarios/email'</span>,
+	<span class="php-quote">'email2'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_email'</span>,
+	<span class="php-quote">'password'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_password'</span>,
+	<span class="php-quote">'password2'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_password'</span>,
+	<span class="php-comment">// fecha_alta: si no se aporta se crea en mysql.</span>
+	<span class="php-quote">&quot;fecha_alta&quot;</span> =&gt; <span class="php-quote">&quot;errores_fecha_hora&quot;</span>,
+	<span class="php-comment">// fecha_confirmacion_alta: Sí debe ser aportada en la inserción interna</span>
+	<span class="php-quote">&quot;fecha_confirmacion_alta&quot;</span> =&gt; <span class="php-quote">&quot;errores_fecha_hora&quot;</span>, 
+	<span class="php-quote">&quot;clave_confirmacion&quot;</span> =&gt; <span class="php-quote">&quot;errores_texto&quot;</span>,
+)</code></td>
+		<td class="description"><div>
+			<a href="#$validaciones_insert" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="validaciones_update" id="$validaciones_update">
+		<td class="attributes"><code>
+			public static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-modelos.usuarios.html#21-30" title="Go to source code"><var>$validaciones_update</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-quote">&quot;id&quot;</span> =&gt; <span class="php-quote">&quot;errores_requerido &amp;&amp; errores_numero_entero_positivo &amp;&amp; errores_referencia:id/usuarios/id&quot;</span>,
+	<span class="php-quote">'login'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_login &amp;&amp; errores_unicidad_modificar:id,login/usuarios/id,login'</span>,
+	<span class="php-quote">'email'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_email &amp;&amp; errores_unicidad_modificar:id,email/usuarios/id,email'</span>,
+	<span class="php-comment">// fecha_alta: si no se aporta se crea en mysql.</span>
+	<span class="php-quote">&quot;fecha_alta&quot;</span> =&gt; <span class="php-quote">&quot;errores_fecha_hora&quot;</span>,
+	<span class="php-comment">// fecha_confirmacion_alta: Sí debe ser aportada en la inserción interna</span>
+	<span class="php-quote">&quot;fecha_confirmacion_alta&quot;</span> =&gt; <span class="php-quote">&quot;errores_fecha_hora&quot;</span>, 
+	<span class="php-quote">&quot;clave_confirmacion&quot;</span> =&gt; <span class="php-quote">&quot;errores_texto&quot;</span>,
+)</code></td>
+		<td class="description"><div>
+			<a href="#$validaciones_update" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="validaciones_password_update" id="$validaciones_password_update">
+		<td class="attributes"><code>
+			public static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-modelos.usuarios.html#33-38" title="Go to source code"><var>$validaciones_password_update</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-quote">&quot;id&quot;</span> =&gt; <span class="php-quote">&quot;errores_requerido &amp;&amp; errores_numero_entero_positivo &amp;&amp; errores_referencia:id/usuarios/id&quot;</span>,
+	<span class="php-quote">'login'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_login'</span>,
+	<span class="php-quote">'password'</span> =&gt; <span class="php-quote">'errores_requerido &amp;&amp; errores_password'</span>,
+	<span class="php-quote">'password2'</span> =&gt; <span class="php-quote">'errores_requerido'</span>,
+)</code></td>
+		<td class="description"><div>
+			<a href="#$validaciones_password_update" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	<tr data-order="validaciones_delete" id="$validaciones_delete">
+		<td class="attributes"><code>
+			public static 
+			array
+		</code></td>
+
+		<td class="name">
+				<a href="source-class-modelos.usuarios.html#42-44" title="Go to source code"><var>$validaciones_delete</var></a>
+		</td>
+		<td class="value"><code><span class="php-keyword1">array</span>(
+	<span class="php-quote">&quot;id&quot;</span> =&gt; <span class="php-quote">&quot;errores_requerido &amp;&amp; errores_numero_entero_positivo &amp;&amp; errores_referencia:id/usuarios/id&quot;</span>
+)</code></td>
+		<td class="description"><div>
+			<a href="#$validaciones_delete" class="anchor">#</a>
+
+			<div class="description short">
+				
+			</div>
+
+			<div class="description detailed hidden">
+				
+
+			</div>
+		</div></td>
+	</tr>
+	</table>
+
+	<table class="summary inherited">
+	<caption>Properties inherited from <a href="class-core.sgbd.mysqli.html#properties">core\sgbd\mysqli</a></caption>
+	<tr>
+		<td><code>
+			<a href="class-core.sgbd.mysqli.html#$connection"><var>$connection</var></a>, 
+			<a href="class-core.sgbd.mysqli.html#$query"><var>$query</var></a>, 
+			<a href="class-core.sgbd.mysqli.html#$result"><var>$result</var></a>
+		</code></td>
+	</tr>
+	</table>
+
+
+
+
+
+</div>
+
+	<div id="footer">
+		table_crud API documentation generated by <a href="http://apigen.org">ApiGen 2.8.0</a>
+	</div>
+</div>
+</div>
+</body>
+</html>

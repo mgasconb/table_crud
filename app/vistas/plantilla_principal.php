@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
-<html lang='<?php echo \core\Idioma::get(); ?>'>
+<html lang='es'>
     <head>
-        <title><?php echo \core\Idioma::text("title", "plantilla_internacional"); ?></title>
+        <title>Plantilla principal</title>
         <meta name="Description" content="Explicación de la página" /> 
         <meta name="Keywords" content="palabras en castellano e ingles separadas por comas" /> 
         <meta name="Generator" content="esmvcphp framewrok" /> 
