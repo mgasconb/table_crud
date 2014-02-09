@@ -125,25 +125,6 @@ CHARACTER SET utf8 COLLATE utf8_general_ci
 engine=myisam;
 
 
-drop table if exists daw2_menu;
-create table daw2_menu
-( id integer unsigned not null
-, es_submenu_de_id integer unsigned null
-, nivel integer unsigned not null comment '1 menu principal, 2 submenú, ...'
-, orden integer unsigned null comment 'Orden en que aparecerán'
-, texto varchar(50) not null comment 'Texto a mostrar en el item del menú'
-, accion_controlador varchar(50) not null
-, accion_metodo varchar(50) null comment 'null si es una entrada de nivel 1 con submenu de nivel 2'
-, title varchar(255) null
-, primary key (id)
-, foreign key (es_submenu_de_id) references daw2_menu(id)
-, unique (es_submenu_de_id, texto) -- Para evitar repeticiones de texto
-, unique (accion_controlador, accion_metodo) -- Si una acción/funcionalidad solo debe aparecer una vez en el menú
-)
-CHARACTER SET utf8 COLLATE utf8_general_ci
-engine=myisam;
-
-
 /*
  * @file: dables_and_user.sql
  * @author: jequeto@gmail.com
@@ -211,94 +192,12 @@ insert into daw2_usuarios_permisos
 ;
 
 
-truncate table daw2_menu;
-insert into daw2_menu
-  (id, es_submenu_de_id	, nivel	, orden	, texto, accion_controlador, accion_metodo, title) values
-  (1 , null				, 1		, null	, 'Inicio', 'inicio', 'index', null)
-, (2 , null				, 1		, null	, 'Internacional', 'inicio', 'internacional', null)
-, (3 , null				, 1		, null	, 'Libros', 'libros', 'index', null)
-, (4 , null				, 1		, null	, 'Revista', 'revista', 'index', null)
-, (5 , null				, 1		, null	, 'Usuarios', 'usuarios', 'index', null)
-, (6 , null				, 1		, null	, 'Categorías', 'categorias', 'index', null)
-, (7 , null				, 1		, null	, 'Artículos', 'articulos', null, null)
-, (8 , 7				, 2		, null	, 'listado', 'articulos', 'index', null)
-, (9 , 7				, 2		, null	, 'recuento por categoría', 'articulos', 'recuento_por_categoria', null)
-;
-
-
 /*
  * @file: views.sql
  * @author: jequeto@gmail.com
  * @since: 2014 enero
 */
 
-/*
-Vista que recuperará todos los permisos de los que disfruta un usuario,
-recopilando los asignados directamente en la tabla usuarios_permisos,
-y los asignados indirectamente en la tabla usuarios_roles.
-*/
-create or replace view daw2_v_usuarios_permisos_roles
-as
--- de usuarios_permisos
-select
-		 up.login
-		,up.controlador
-		,up.metodo
-		,null as rol -- rol donante del permiso
-from daw2_usuarios_permisos up
-union distinct
--- de usuarios_roles
-select
-		 ur.login
-		,rp.controlador
-		,rp.metodo
-		,ur.rol -- rol donante del permiso
-from daw2_usuarios_roles ur inner join daw2_roles_permisos rp on ur.rol=rp.rol
-order by login, controlador, metodo, rol
-;
-
-/*
-Vista que devolverá una relación única de los permisos que tiene asignados
-un usuario, sumados los directos más los indirectos (a través de los roles que 
-tiene asignados).
-*/
-create or replace view daw2_v_usuarios_permisos
-as
-select distinct
-		login
-		,controlador
-		,metodo
-from daw2_v_usuarios_permisos_roles
-order by login, controlador, metodo
-;
-
-
-
-
-create or replace view daw2_v_menu_submenu
-(orden_nivel_1, orden_nivel_2, texto_menu, texto_submenu, accion_controlador, accion_metodo, title)
-as
--- Items de nivel 1
-select
-	nivel as orden_nivel_1, null, texto as texto_menu, null, accion_controlador, accion_metodo, title
-from daw2_menu
-where nivel = 1
-union
--- Items de nivel 2 o submenus
-select
-	m.nivel as orden_nivel_1, sm.orden as orden_nivel_2, m.texto as texto_menu, sm.texto as texto_submenu, sm.accion_controlador, sm.accion_metodo, sm.title
-from daw2_menu as sm inner join daw2_menu as m on sm.es_submenu_de_id=m.id
-where sm.nivel = 2
-order by orden_nivel_1, orden_nivel_2, texto_menu, texto_submenu
-;
-
-
-
-/*
-* @file: dables_and_user.sql
-* @author: jequeto@gmail.com
-* @since: 2012 enero
-*/
 
 /*Mi parte*/
 
