@@ -62,9 +62,9 @@ class Configuracion {
         /*
 	public static $db = array(
 		'server'   => 'mysql.hostinger.es',
-		'user'     => 'u130051890_table',
-		'password' => 'BIV98',
-		'db_name'   => 'u130051890_table',
+		'user'     => 'u130051890_ranki',
+		'password' => 'configuracion',
+		'db_name'   => 'u130051890_ranki',
 		'prefix_'  => 'daw2_'
 	);
          */
