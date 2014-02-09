@@ -9,7 +9,7 @@ create database daw2;*/
 # Concedemos al usuario daw2_user todos los permisos sobre esa base de datos
 # grant all privileges on daw2.* to daw2_user;
 
-use u130051890_table;# MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas).
+use u130051890_ranki;# La password es "ranking"
 
 
 set names utf8;# MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas).
@@ -347,12 +347,9 @@ order by orden_nivel_1, orden_nivel_2, texto_menu, texto_submenu
 */
 
 /*Mi parte*/
-
 /*Password = user+00*/
-drop table if exists daw2_tabla;
-# MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas).
-
-CREATE TABLE `daw2_tabla` (
+drop table if exists daw2_ranking;
+CREATE TABLE `daw2_ranking` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,
   `apellidoPaterno` varchar(50) DEFAULT NULL,
@@ -364,10 +361,8 @@ CREATE TABLE `daw2_tabla` (
   `dt_registro` timestamp DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ;
-# MySQL ha devuelto un conjunto de valores vacío (es decir: cero columnas).
 
-
-INSERT INTO `daw2_tabla`
+INSERT INTO `daw2_ranking`
 (`nombre`,
 `apellidoPaterno`,
 `apellidoMaterno`,
@@ -384,4 +379,3 @@ VALUES
 ('juan', 'aaa', 'aaa', 'jaaa@hotmail.com', 'jaaa', '5c47a79da5ece33687f062ac2260b9cb', 564.33),
 ('luis', 'aaa', 'aaa', 'laaa@hotmail.com', 'laaa', '1e9043ac94d1f91538f37cfb535fcbff',  2.78)
 ;
-# 5 filas afectadas.
