@@ -6,7 +6,7 @@ namespace core;
  * Esta clase genera etiquetas html.
  * Cada etiqueta se definine en un método específico.
  *
- * @author Jesús María de Quevedo Tomé <jequeto@gmail.com>
+ * @author Miguel Gascón Biurrun <mgasconb@gmail.com>
  * @since 20130130
  */
 class HTML_Tag extends \core\Clase_Base {

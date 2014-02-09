@@ -2,7 +2,7 @@
 namespace core;
 
 /**
- * @author Jesús María de Quevedo Tomé <jequeto@gmail.com>
+ * @author Miguel Gascón Biurrun <mgasconb@gmail.com>
  * @since 2013-01-30
  */
 class Distribuidor {
@@ -18,7 +18,7 @@ class Distribuidor {
 	 * Para ejecutar un controlador desde otro controlador (forwarding) debe
 	 * usarse el método cargar_controlador() de esta clase.
 	 * 
-	 * @author Jesús Mª de Quevedo
+	 * @author Miguel Gascón Biurrun <mgasconb@gmail.com>
 	 */
 	public static function estudiar_query_string() {		
 		

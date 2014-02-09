@@ -5,7 +5,7 @@ namespace core;
 /**
  * Description of Idioma
  *
- * @author jesus
+ * @author Miguel Gascón Biurrun <mgasconb@gmail.com>
  */
 class Idioma {
 	
